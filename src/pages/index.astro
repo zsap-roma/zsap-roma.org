@@ -1,152 +1,35 @@
 ---
+import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 ---
-
-<script>
-  // fiori
-  import "@ui5/webcomponents-fiori/dist/Bar.js";
-  import "@ui5/webcomponents-fiori/dist/Page.js";
-  // components
-  import "@ui5/webcomponents/dist/Button.js";
-  import "@ui5/webcomponents/dist/Label.js";
-  import "@ui5/webcomponents/dist/Title.js";
-  import "@ui5/webcomponents/dist/Carousel.js";
-  import "@ui5/webcomponents/dist/Card.js";
-  import "@ui5/webcomponents/dist/CardHeader.js";
-  // icon
-  import "@ui5/webcomponents-icons/dist/email.js";
-  import "@ui5/webcomponents-icons/dist/sap-logo-shape.js";
-</script>
 
 <style>
   .imgCarousel {
     max-height: 30rem;
-    /* zoom full content the image */
     width: 100%;
     object-fit: cover;
   }
 </style>
-<Layout title="Welcome to Astro.">
-  <ui5-page background-design="Solid" floating-footer>
-    <ui5-bar design="Header" slot="header" style="">
-      <img
-        slot="startContent"
-        src="./sap-logo.png"
-        alt="SAP"
-        style="height: 2rem; margin-right: 1rem;"
-      />
-      <ui5-title type="H1">ZSAP-ROMA</ui5-title>
-      <ui5-button
-        design="Emphasized"
-        icon="email"
-        tooltip="Contact us"
-        slot="endContent"></ui5-button>
-    </ui5-bar>
 
-    <!-- <div
-      style="height:26rem; 
-      margin-top: 1em;
-      padding-top: 1rem;
-      text-align:center; 
-      background-image: url(./banner.jpeg);
-      background-repeat: no-repeat; 
-      background-size: cover; 
-      background-position-y: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);Z"
-    >
-      <div
-        style="background: rgba(255,255,255,0.5); 
-        padding: 0.75rem; 
-        box-shadow: 0 0 10px 
-        rgba(0,0,0,0.5); 
-        border-radius: 8px; 
-        margin: 1rem auto; 
-        max-width: 300px;"
-      >
-        <ui5-title type="H1">ZSAP-ROMA</ui5-title>
-        <p class="content-paragraph">
-          La Community romana degli appassionati SAP
-        </p>
-      </div>
-    </div> -->
+<script>
+  import "@ui5/webcomponents/dist/Carousel.js";
+</script>
+
+<Layout title="Welcome to Astro.">
     <ui5-carousel style="max-height:30rem" cyclic hide-page-indicator>
       <img src="./banner1.jpeg" alt="Banner" class="imgCarousel" />
       <img src="./banner2.jpeg" alt="Banner" class="imgCarousel" />
       <img src="./banner3.jpeg" alt="Banner" class="imgCarousel" />
     </ui5-carousel>
     <main>
-      <ui5-title level="H2">Cosa trattiamo</ui5-title>
+      <ui5-bar style="margin-top: 1rem; margin-bottom: 1rem;">
+        <ui5-title level="H2">Di cosa parliamo</ui5-title>
+      </ui5-bar>
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem;">
-        <ui5-card>
-          <ui5-card-header slot="header" title-text="SAP S/4HANA">
-            <ui5-icon name="sap-logo-shape" slot="avatar"></ui5-icon>
-          </ui5-card-header>
-
-          <div style="padding: 2rem;">
-          <ui5-title level="H4">SAP S/4HANA</ui5-title>
-          <ui5-label wrapping-type="Normal">
-            SAP S/4HANA è la suite di gestione aziendale di nuova generazione,
-            che offre un'esperienza utente personalizzata con SAP Fiori. Questa
-            soluzione è progettata per essere eseguita su SAP HANA, la
-            piattaforma di elaborazione in memoria di SAP.
-          </ui5-label>
-          </div>
-        </ui5-card>
-        <ui5-card>
-          <ui5-card-header slot="header" title-text="SAP BTP"
-            ><ui5-icon name="sap-logo-shape" slot="avatar"> </ui5-icon>
-          </ui5-card-header>
-
-          <div style="padding: 2rem;">
-          <ui5-title level="H4">SAP Build technology platform</ui5-title>
-          <ui5-label wrapping-type="Normal">
-            SAP BTP è una piattaforma cloud che offre un insieme di servizi e
-            tecnologie per costruire, estendere e integrare applicazioni.
-          </ui5-label>
-          </div>
-        </ui5-card>
-        <ui5-card>
-          <ui5-card-header slot="header" title-text="SAP Fiori"
-          ><ui5-icon name="sap-logo-shape" slot="avatar"> </ui5-icon>
-        </ui5-card-header>
-
-          <div style="padding: 2rem;">
-          <ui5-title level="H4">SAP Fiori, SAPUI5 & SAP Fiori Element</ui5-title>
-          <ui5-label wrapping-type="Normal">
-            <ui5-list>
-              <ui5-label wrapping-type="Normal"
-                >SAP Fiori è un insieme di linee guida per la progettazione di
-                applicazioni che offrono un'esperienza utente intuitiva e
-                uniforme su qualsiasi dispositivo.</ui5-label
-              >
-            </ui5-list>
-          </ui5-label>
-          </div>
-        </ui5-card>
-        <ui5-card>
-          <ui5-card-header slot="header" title-text="SAP CPI"
-            ><ui5-icon name="sap-logo-shape" slot="avatar"> </ui5-icon>
-          </ui5-card-header>
-
-          <div style="padding: 2rem;">
-          <ui5-title level="H4">SAP Cloud Platform Integration</ui5-title>
-          <ui5-label wrapping-type="Normal">
-            SAP CPI è un servizio di integrazione cloud che consente di
-            connettere processi e dati tra sistemi cloud e on-premise.
-          </ui5-label>
-          </div>
-        </ui5-card>
+        <Card href="/zsap-roma.org/s-4hana" title="SAP S/4HANA" body="SAP S/4HANA è la suite di gestione aziendale di nuova generazione, che offre un'esperienza utente personalizzata con SAP Fiori. Questa soluzione è progettata per essere eseguita su SAP HANA, la piattaforma di elaborazione in memoria di SAP." />
+        <Card href="/zsap-roma.org/btp" title="SAP BTP" body="SAP Build technology platform è una piattaforma cloud che offre un insieme di servizi e tecnologie per costruire, estendere e integrare applicazioni." />
+        <Card href="/zsap-roma.org/fiori" title="SAP Fiori" body="SAP Fiori è un insieme di linee guida per la progettazione di applicazioni che offrono un'esperienza utente intuitiva e uniforme su qualsiasi dispositivo." />
+        <Card href="/zsap-roma.org/cpi" title="SAP CPI" body="SAP Cloud Platform Integration è un servizio di integrazione cloud che consente di connettere processi e dati tra sistemi cloud e on-premise." />
       </div>
     </main>
-    <div slot="footer">
-      <ui5-bar design="FloatingFooter">
-        <ui5-button design="Positive" slot="startContent" style="width:120px"
-          >Blog</ui5-button
-        >
-        <ui5-button design="Emphasized" slot="endContent" style="width:120px"
-          >Contact us</ui5-button
-        >
-      </ui5-bar>
-    </div>
-  </ui5-page>
 </Layout>

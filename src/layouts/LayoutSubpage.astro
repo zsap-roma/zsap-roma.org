@@ -20,7 +20,7 @@ const { title } = Astro.props;
       // theme
       import applyTheme from "@ui5/webcomponents-base/dist/theming/applyTheme.js";
       // possible value: https://sap.github.io/ui5-webcomponents/docs/advanced/configuration/#theme
-      applyTheme("sap_horizon_dark");
+      applyTheme("sap_horizon");
 
       // fiori
       import "@ui5/webcomponents-fiori/dist/Page.js";
@@ -32,15 +32,21 @@ const { title } = Astro.props;
       import "@ui5/webcomponents/dist/Link.js";
       // icon
       import "@ui5/webcomponents-icons/dist/email.js";
+      import "@ui5/webcomponents-icons/dist/home.js";
 
       // theme
       import "@ui5/webcomponents-theming/Assets.js";
+      document.getElementById("nav-back")?.addEventListener("click", () => {
+        console.log("click")
+        window.history.go(-1);
+      });
     </script>
   </head>
   <body>
     <ui5-page background-design="Solid" floating-footer>
       <!-- HEADER -->
-      <ui5-bar design="Header" slot="header" style="">
+      <ui5-bar design="Header" slot="header">
+        <ui5-button id="nav-back" design="Transparent" icon="home" tooltip="Go home" slot="startContent"></ui5-button>
         <img
           slot="startContent"
           src="./sap-logo.png"

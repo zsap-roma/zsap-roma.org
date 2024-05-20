@@ -12,26 +12,9 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-
-    
-    <!-- <script type="importmap">
-      {
-        "imports": {
-          "@ui5/webcomponents/": "https://sap.github.io/ui5-webcomponents/local-cdn/main/",
-          "@ui5/webcomponents-base/": "https://sap.github.io/ui5-webcomponents/local-cdn/base/",
-          "@ui5/webcomponents-icons/": "https://sap.github.io/ui5-webcomponents/local-cdn/icons/",
-          "@ui5/webcomponents-localization/": "https://sap.github.io/ui5-webcomponents/local-cdn/localization/",
-          "@ui5/webcomponents-theming/": "https://sap.github.io/ui5-webcomponents/local-cdn/theming/",
-					"lit-html": "https://sap.github.io/ui5-webcomponents/local-cdn/lit-html/lit-html.js",
-					"lit-html/": "https://sap.github.io/ui5-webcomponents/local-cdn/lit-html/",
-          "@zxing/library/umd/": "https://sap.github.io/ui5-webcomponents/local-cdn/zxing/umd/",
-          "@zxing/library/esm5/": "https://sap.github.io/ui5-webcomponents/local-cdn/zxing/esm5/"
-        }
-      }
-    </script> -->
 	</head>
 	<body style="background-color: var(--sapBackgroundColor)">
 		<slot />

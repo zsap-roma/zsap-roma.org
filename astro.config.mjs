@@ -4,7 +4,8 @@ import lit from "@astrojs/lit";
 
 // https://astro.build/config
 export default defineConfig({
-  base: '/zsap-roma/',
+  site: 'https://zsap-roma.github.io',
+  base: '/zsap-roma.org/',
   integrations: [lit()],
   output: 'static',
   outDir: './dist',

@@ -3,20 +3,39 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <script>
-	// fiori
+  // fiori
   import "@ui5/webcomponents-fiori/dist/Bar.js";
   import "@ui5/webcomponents-fiori/dist/Page.js";
-	// components
+  // components
   import "@ui5/webcomponents/dist/Button.js";
   import "@ui5/webcomponents/dist/Label.js";
   import "@ui5/webcomponents/dist/Title.js";
-	// icon
+  import "@ui5/webcomponents/dist/Carousel.js";
+  import "@ui5/webcomponents/dist/Card.js";
+  import "@ui5/webcomponents/dist/CardHeader.js";
+  // icon
   import "@ui5/webcomponents-icons/dist/email.js";
+  import "@ui5/webcomponents-icons/dist/sap-logo-shape.js";
 </script>
+
+<style>
+  .imgCarousel {
+    max-height: 30rem;
+    /* zoom full content the image */
+    width: 100%;
+    object-fit: cover;
+  }
+</style>
 <Layout title="Welcome to Astro.">
   <ui5-page background-design="Solid" floating-footer>
     <ui5-bar design="Header" slot="header" style="">
-      <ui5-label slot="startContent">ZSAP-ROMA</ui5-label>
+      <img
+        slot="startContent"
+        src="./sap-logo.png"
+        alt="SAP"
+        style="height: 2rem; margin-right: 1rem;"
+      />
+      <ui5-title type="H1">ZSAP-ROMA</ui5-title>
       <ui5-button
         design="Emphasized"
         icon="email"
@@ -24,78 +43,110 @@ import Layout from "../layouts/Layout.astro";
         slot="endContent"></ui5-button>
     </ui5-bar>
 
-    <div style="height:26rem; text-align:center; background-image: url(./banner.jpeg);background-repeat: no-repeat; background-size: cover; background-position-y: -3.5rem;">
-      <!-- <img src="./banner.jpeg" width="300px" alt="ZSAP-ROMA Banner logo" /> -->
-			<ui5-title style="padding: 1rem;" type="H1">ZSAP-ROMA</ui5-title>
-			<p class="content-paragraph">La Community romana degli appassionati di SAP</p>
-    </div>
+    <!-- <div
+      style="height:26rem; 
+      margin-top: 1em;
+      padding-top: 1rem;
+      text-align:center; 
+      background-image: url(./banner.jpeg);
+      background-repeat: no-repeat; 
+      background-size: cover; 
+      background-position-y: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);Z"
+    >
+      <div
+        style="background: rgba(255,255,255,0.5); 
+        padding: 0.75rem; 
+        box-shadow: 0 0 10px 
+        rgba(0,0,0,0.5); 
+        border-radius: 8px; 
+        margin: 1rem auto; 
+        max-width: 300px;"
+      >
+        <ui5-title type="H1">ZSAP-ROMA</ui5-title>
+        <p class="content-paragraph">
+          La Community romana degli appassionati SAP
+        </p>
+      </div>
+    </div> -->
+    <ui5-carousel style="max-height:30rem" cyclic hide-page-indicator>
+      <img src="./banner1.jpeg" alt="Banner" class="imgCarousel" />
+      <img src="./banner2.jpeg" alt="Banner" class="imgCarousel" />
+      <img src="./banner3.jpeg" alt="Banner" class="imgCarousel" />
+    </ui5-carousel>
+    <main>
+      <ui5-title level="H2">Cosa trattiamo</ui5-title>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem;">
+        <ui5-card>
+          <ui5-card-header slot="header" title-text="SAP S/4HANA">
+            <ui5-icon name="sap-logo-shape" slot="avatar"></ui5-icon>
+          </ui5-card-header>
+
+          <div style="padding: 2rem;">
+          <ui5-title level="H4">SAP S/4HANA</ui5-title>
+          <ui5-label wrapping-type="Normal">
+            SAP S/4HANA è la suite di gestione aziendale di nuova generazione,
+            che offre un'esperienza utente personalizzata con SAP Fiori. Questa
+            soluzione è progettata per essere eseguita su SAP HANA, la
+            piattaforma di elaborazione in memoria di SAP.
+          </ui5-label>
+          </div>
+        </ui5-card>
+        <ui5-card>
+          <ui5-card-header slot="header" title-text="SAP BTP"
+            ><ui5-icon name="sap-logo-shape" slot="avatar"> </ui5-icon>
+          </ui5-card-header>
+
+          <div style="padding: 2rem;">
+          <ui5-title level="H4">SAP Build technology platform</ui5-title>
+          <ui5-label wrapping-type="Normal">
+            SAP BTP è una piattaforma cloud che offre un insieme di servizi e
+            tecnologie per costruire, estendere e integrare applicazioni.
+          </ui5-label>
+          </div>
+        </ui5-card>
+        <ui5-card>
+          <ui5-card-header slot="header" title-text="SAP Fiori"
+          ><ui5-icon name="sap-logo-shape" slot="avatar"> </ui5-icon>
+        </ui5-card-header>
+
+          <div style="padding: 2rem;">
+          <ui5-title level="H4">SAP Fiori, SAPUI5 & SAP Fiori Element</ui5-title>
+          <ui5-label wrapping-type="Normal">
+            <ui5-list>
+              <ui5-label wrapping-type="Normal"
+                >SAP Fiori è un insieme di linee guida per la progettazione di
+                applicazioni che offrono un'esperienza utente intuitiva e
+                uniforme su qualsiasi dispositivo.</ui5-label
+              >
+            </ui5-list>
+          </ui5-label>
+          </div>
+        </ui5-card>
+        <ui5-card>
+          <ui5-card-header slot="header" title-text="SAP CPI"
+            ><ui5-icon name="sap-logo-shape" slot="avatar"> </ui5-icon>
+          </ui5-card-header>
+
+          <div style="padding: 2rem;">
+          <ui5-title level="H4">SAP Cloud Platform Integration</ui5-title>
+          <ui5-label wrapping-type="Normal">
+            SAP CPI è un servizio di integrazione cloud che consente di
+            connettere processi e dati tra sistemi cloud e on-premise.
+          </ui5-label>
+          </div>
+        </ui5-card>
+      </div>
+    </main>
     <div slot="footer">
       <ui5-bar design="FloatingFooter">
-        <ui5-button design="Positive" slot="startContent" style="width:120px">Blog</ui5-button>
-        <ui5-button design="Emphasized" slot="endContent" style="width:120px">Contact us</ui5-button>
+        <ui5-button design="Positive" slot="startContent" style="width:120px"
+          >Blog</ui5-button
+        >
+        <ui5-button design="Emphasized" slot="endContent" style="width:120px"
+          >Contact us</ui5-button
+        >
       </ui5-bar>
     </div>
   </ui5-page>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  .astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    transform: translatex(-50%);
-    width: 220px;
-    height: auto;
-    z-index: -1;
-  }
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-  .instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(
-      rgba(var(--accent-dark), 66%),
-      rgba(var(--accent-dark), 33%)
-    );
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-  .instructions code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-  }
-  .instructions strong {
-    color: rgb(var(--accent-light));
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 2rem;
-    padding: 0;
-  }
-</style>

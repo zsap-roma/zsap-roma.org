@@ -30,11 +30,25 @@ const { title } = Astro.props;
       import "@ui5/webcomponents/dist/Label.js";
       import "@ui5/webcomponents/dist/Title.js";
       import "@ui5/webcomponents/dist/Link.js";
+      import type Toast from "@ui5/webcomponents/dist/Toast.js";
+      import "@ui5/webcomponents/dist/Toast.js";
       // icon
       import "@ui5/webcomponents-icons/dist/email.js";
 
       // theme
       import "@ui5/webcomponents-theming/Assets.js";
+
+
+
+      // event
+      document.getElementById("btn-blog")?.addEventListener("click", () => {
+        window.location.href = window.location.href + "blog";
+      });
+      const toast = document.getElementById("toast") as Toast;
+      document.getElementById("btn-community")?.addEventListener("click", () => {
+        toast?.show();	
+      });
+
     </script>
   </head>
   <body>
@@ -57,14 +71,15 @@ const { title } = Astro.props;
       <!-- FOOTER -->
       <div slot="footer">
         <ui5-bar design="FloatingFooter">
-          <ui5-button design="Positive" slot="startContent">
+          <ui5-button id="btn-blog" design="Positive" slot="startContent">
             Blog
           </ui5-button>
-          <ui5-button design="Emphasized" slot="endContent">
+          <ui5-button id="btn-community" design="Emphasized" slot="endContent">
             Unisciti alla community
           </ui5-button>
         </ui5-bar>
       </div>
+      <ui5-toast id="toast">Unisciti alla community</ui5-toast>
     </ui5-page>
   </body>
 </html>

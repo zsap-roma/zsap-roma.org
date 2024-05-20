@@ -7,5 +7,9 @@ export default defineConfig({
   site: 'https://zsap-roma.github.io',
   base: 'zsap-roma',
   integrations: [lit()],
-  output: 'server'
+  output: 'static',
+  outDir: './dist',
+  build: {
+    assets: 'astro'
+  }
 });

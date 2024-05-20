@@ -37,7 +37,6 @@ const { title } = Astro.props;
       // theme
       import "@ui5/webcomponents-theming/Assets.js";
       document.getElementById("nav-back")?.addEventListener("click", () => {
-        console.log("click")
         window.history.go(-1);
       });
     </script>
@@ -55,7 +54,6 @@ const { title } = Astro.props;
         />
         <ui5-title type="H1">ZSAP-ROMA</ui5-title>
         <ui5-button
-          design="Emphasized"
           icon="email"
           tooltip="Contact us"
           slot="endContent"></ui5-button>
@@ -64,12 +62,12 @@ const { title } = Astro.props;
       <!-- FOOTER -->
       <div slot="footer">
         <ui5-bar design="FloatingFooter">
-          <ui5-button design="Positive" slot="startContent" style="width:120px"
-            >Blog</ui5-button
-          >
-          <ui5-button design="Emphasized" slot="endContent" style="width:120px"
-            >Contact us</ui5-button
-          >
+          <ui5-button design="Positive" slot="startContent">
+            Blog
+          </ui5-button>
+          <ui5-button design="Emphasized" slot="endContent">
+            Unisciti alla community
+          </ui5-button>
         </ui5-bar>
       </div>
     </ui5-page>
